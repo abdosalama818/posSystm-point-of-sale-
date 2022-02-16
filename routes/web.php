@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\CatController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,13 +14,39 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+
+
+
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+    function()
+    {
+        Route::view('/','dashboard.index');
+        Route::view('/add/cat','dashboard.add_cat');
+        Route::post('/store/cat',[CatController::class,'store']);
+        Route::get('/cats',[CatController::class,'show']);
+        Route::get('/edit/cat/{id}',[CatController::class,'edit_cat']);
+        Route::post('/update/cat/{id}',[CatController::class,'update']);
+
+        Route::get('/delete/cat/{id}',[CatController::class,'cat_delete']);
+        Route::get('/serch/cat/',[CatController::class,'search_cat']);
+
+    });
+
+
