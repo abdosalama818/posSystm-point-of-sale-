@@ -251,6 +251,16 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{url('dashboard/products')}}" class="nav-link">
+           
+              <p>
+                products
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+
 
 
 
