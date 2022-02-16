@@ -18,17 +18,48 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Add category</h3>
+            <h3 class="card-title">Add Product</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form role="form" method="post" action = "{{url('dashboard/store/cat')}}" enctype="multipart/form-data">
+          <form role="form" method="post" action = "{{url('dashboard/store/product')}}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
               <div class="form-group">
-                <label for="exampleInputEmail1">category name </label>
-                <input type="text" name="cat_name" class="form-control" id="exampleInputEmail1" placeholder="Enter category name">
+                <label for="exampleInputEmail1">product name </label>
+                <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Enter product name">
               </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">price </label>
+                <input type="number" name="price" class="form-control" id="exampleInputEmail1" placeholder="Enter product price">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">piceas number </label>
+                <input type="number" name="piceas_number" class="form-control" id="exampleInputEmail1" placeholder="Enter piceas_number ">
+              </div>
+
+
+              <div class="form-group">
+                <label for="exampleInputEmail1"> categories </label>
+
+                <select name="cat_name" class="form-control" id="">
+                    <option value="">select category</option>
+                    @foreach ( $cats as $cat)
+                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                    @endforeach
+                </select>
+              </div>
+
+
+
+              <div class="form-group">
+                <label>Textarea</label>
+                <textarea  name="desc" class="form-control" rows="3" placeholder="Enter the description "></textarea>
+              </div>
+
+
 
               <div class="form-group">
                 <label for="exampleInputFile">File input</label>

@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cat extends Model
+class Product extends Model
 {
     use HasFactory;
     protected $guarded = ['id','created_at','updated_at'];
 
-    // category has many products
 
-    public function products()
+    // products belongs to one category
+
+    public function cat()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Cat::class);
     }
 }

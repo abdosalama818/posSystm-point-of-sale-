@@ -12,18 +12,19 @@ class CatController extends Controller
 
     public function store(Request $request)
     {
-/*
-        $request->validate([
-            'name' =>'required|string|max:255',
-            'img' =>'required|image|mimes:png,jpg'
+
+        $validated =  $request->validate([
+            'cat_name' =>'required|string|max:255',
+            'img' =>'required|image|mimes:png,jpg',
+
         ]);
-*/
+
 $img_path = Storage::putFile('category',$request->img);
         Cat::create([
             'name' =>$request->cat_name,
             'img' =>$img_path,
         ]);
-        return redirect(url('cats'));
+        return redirect(url('dashboard/cats'));
 
     }
 
@@ -52,7 +53,7 @@ public function update($id , Request $request)
             'name' =>$request->cat_name,
             'img' =>$img_path,
         ]);
-    return redirect(url('cats'));
+    return redirect(url('dashboard/cats'));
 
 
     }
@@ -68,7 +69,7 @@ public function update($id , Request $request)
         $cat = Cat::findOrFail($id);
         Storage::delete($cat->img);
         $cat->delete();
-        return redirect(url('cats'));
+        return redirect(url('dashboard/cats'));
 
     }
 

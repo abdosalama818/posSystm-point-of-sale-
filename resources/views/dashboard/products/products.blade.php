@@ -8,16 +8,16 @@
 <div class="row">
     <div class="col-12">
        <div class="add-cat m-2">
-        <a class="btn btn-success " href="{{url('dashboard/add/cat')}}">Add</a>
+        <a class="btn btn-success " href="{{url('dashboard/add/product')}}">Add</a>
        </div>
             <div class="card">
                 <div class="card-header">
 
-                    <h3 class="card-title">show all category</h3>
+                    <h3 class="card-title">show all products</h3>
 
 
                     <div class="card-tools ">
-                  <form action="{{url('dashboard/serch/cat/')}}" method="get">
+                  <form action="{{url('dashboard/serch/product/')}}" method="get">
                     <div class="form-group ">
                         <input type="text" name="search" class="form-control float-right" placeholder="Search">
 
@@ -37,21 +37,22 @@
                         <th>ID</th>
                         <th>name</th>
                         <th>imge</th>
+                        <th>category</th>
                         <th>action</th>
 
                         </tr>
                     </thead>
                     <tbody>
 
-                      @foreach ($cats as $cat )
+                      @foreach ($products as $product )
                       <tr>
-                        <td>{{$cat->id}}</td>
-                        <td>{{$cat->name}}</td>
-                        <td><img src="{{asset('uploads') . '/' . $cat->img}}" style="width: 100px" alt="" srcset=""></td>
-
+                        <td>{{$product->id}}</td>
+                        <td>{{$product->name}}</td>
+                        <td><img src="{{asset('uploads') . '/' . $product->img}}" style="width: 100px" alt="" srcset=""></td>
+                        <td>{{$product->cat->name}}</td>
                         <td>
-                            <a href="{{url('dashboard/edit/cat',$cat->id)}}" target="_blank" class="btn btn-info" rel="noopener noreferrer">edit</a>
-                            <a href="{{url('dashboard/delete/cat',$cat->id)}}" class="btn btn-danger" rel="noopener noreferrer">delete</a>
+                            <a href="{{url('dashboard/edit/product',$product->id)}}" target="_blank" class="btn btn-info" rel="noopener noreferrer">edit</a>
+                            <a href="{{url('dashboard/delete/product',$product->id)}}" class="btn btn-danger" rel="noopener noreferrer">delete</a>
                         </td>
                         </tr>
                       @endforeach

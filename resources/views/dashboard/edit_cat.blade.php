@@ -13,7 +13,7 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form role="form" method="post" action = "{{url('/update/cat',$cat->id)}}" enctype="multipart/form-data">
+          <form role="form" method="post" action = "{{url('dashboard/update/cat',$cat->id)}}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
               <div class="form-group">
