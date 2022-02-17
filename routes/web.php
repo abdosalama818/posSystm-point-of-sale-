@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\CatController;
+use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\ProductController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -59,6 +60,20 @@ Route::group(
 
             Route::get('/delete/product/{id}',[ProductController::class,'product_delete']);
             Route::get('/serch/product/',[ProductController::class,'search_product']);
+
+            // clients toute
+            Route::view('/add/client','dashboard.clients.add_client');
+            Route::post('/store/client',[ClientController::class,'client_store']);
+            Route::get('/clients',[ClientController::class,'clients_show']);
+            Route::get('/edit/client/{id}',[ClientController::class,'client_edit']);
+
+            Route::post('/update/client/{id}',[ClientController::class,'update_client']);
+
+            Route::get('/delete/client/{id}',[ClientController::class,'client_delete']);
+
+            Route::get('/serch/clients/',[ClientController::class,'search_client']);
+
+
         });
 
 

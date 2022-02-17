@@ -49,7 +49,7 @@
 
               <div class="form-group">
                 <label>Textarea</label>
-                <textarea  name="desc" class="form-control" rows="3" placeholder="Enter the description ">{{$product->desc}}</textarea>
+                <textarea  name="desc" class="form-control ckeditor" rows="3" placeholder="Enter the description ">{{$product->desc}}</textarea>
               </div>
 
 

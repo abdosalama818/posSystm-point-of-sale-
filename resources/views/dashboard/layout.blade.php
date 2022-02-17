@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
 @else
 
   <!-- Tell the browser to be responsive to screen width -->
@@ -43,7 +42,6 @@
   <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
   <!-- Custom style for RTL -->
   <link rel="stylesheet" href="{{asset('dist/css/custom.css')}}">
-
 @endif
 
 </head>
@@ -253,7 +251,7 @@
 
           <li class="nav-item">
             <a href="{{url('dashboard/products')}}" class="nav-link">
-           
+                <i class="nav-icon fas fa-th"></i>
               <p>
                 products
                 <span class="right badge badge-danger">New</span>
@@ -261,6 +259,16 @@
             </a>
           </li>
 
+
+          <li class="nav-item">
+            <a href="{{url('dashboard/clients')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+              <p>
+                clients
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
 
 
 
@@ -319,6 +327,7 @@
 </div>
 <!-- ./wrapper -->
 
+
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -355,5 +364,9 @@
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+
+<script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
+
+
 </body>
 </html>
