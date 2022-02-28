@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('desc');
             $table->integer('price');
             $table->integer('piceas_number');
-            $table->foreignId('cat_id')->constrained();
+            $table->foreignId('cat_id')->constrained('cats')->onDelete('cascade');
 
             $table->timestamps();
         });
