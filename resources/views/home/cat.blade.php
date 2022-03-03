@@ -26,8 +26,8 @@
 						<div class="sidebar_title">Categories</div>
 						<ul class="sidebar_categories">
 							{{-- loop --}}
-                            @foreach ($cats as $cat)
-                            <li><a href='{{url("cat/$cat->id")}}'>{{$cat->name}} <i class="fas fa-chevron-right ml-auto"></i></a></li>
+                            @foreach ($cats as $cat2)
+                            <li><a href='{{url("cat/$cat2->id")}}'>{{$cat2->name}} <i class="fas fa-chevron-right ml-auto"></i></a></li>
                             @endforeach
 
 
@@ -61,7 +61,7 @@
                                     <div><a href="{{url('product',$product->id)}}" tabindex="0">{{$product->name}}</a></div>
                                 </div>
                             </div>
-                        
+
                         </div>
 
 

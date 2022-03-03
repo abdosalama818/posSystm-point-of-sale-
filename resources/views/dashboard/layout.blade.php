@@ -272,6 +272,18 @@
 
 
 
+          <li class="nav-item">
+            <a href="{{url('dashboard/orders')}}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+              <p>
+                Orders
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+
+
+
 
         </ul>
       </nav>

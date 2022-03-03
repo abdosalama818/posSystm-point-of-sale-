@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\CatController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Controllers\Dashboard\OrderConttroller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -64,6 +65,17 @@ Route::group(
             Route::get('/delete/client/{id}',[ClientController::class,'client_delete']);
 
             Route::get('/serch/clients/',[ClientController::class,'search_client']);
+
+
+
+
+            Route::get('/orders',[OrderConttroller::class,'show_orders']);
+            Route::get('/order/{id}',[OrderConttroller::class,'show_order']);
+
+            Route::get('/order/approved/{id}',[OrderConttroller::class,'approved_order']);
+            Route::get('/order/canceled/{id}',[OrderConttroller::class,'canceled_order']);
+
+
 
 
         });

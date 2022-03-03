@@ -35,11 +35,12 @@ class ProductController extends Controller
         ]);
 
         $img_path = Storage::putFile('product',$request->img);
+        $describtion = filter_var($request->desc,FILTER_SANITIZE_STRING);
         $product = Product::create([
             'name'=>$request->product_name,
             'price'=>$request->price,
             'piceas_number'=>$request->piceas_number,
-            'desc'=>$request->desc,
+            'desc'=>$describtion,
             'img'=> $img_path,
             'cat_id'=>$request->cat_name,
         ]);
