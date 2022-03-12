@@ -18,7 +18,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Total_price</th>
+                  
                     <th scope="col">Time</th>
                     <th scope="col">Status</th>
                     <th scope="col">Actions</th>
@@ -34,7 +34,7 @@
                     <td>{{$order->name}}</td>
                     <td>{{$order->phone}}</td>
 
-                    <td>{{$total}}</td>
+                    <
                     <td>{{$order->created_at}}</td>
                     <td>{{$order->status}}</td>
                     <td>

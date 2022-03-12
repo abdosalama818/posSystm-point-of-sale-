@@ -11,19 +11,22 @@ class OrderConttroller extends Controller
     public function show_orders()
     {
         $orders = Order::all();
-        $total = 0 ;
+
+ /***
+        // $total = 0 ;
         $sub_total=0;
         foreach ($orders as $order)
         {
+
           foreach ($order->user->carts as $cart)
             {
                 $sub_total= $cart->product->price * $cart->qty;
                 $total +=$sub_total;
            }
-        }
+        }*/
+
         return view('dashboard.orders.orders',[
-            'orders'=>$orders,
-            'total' =>$total
+            'orders' =>$orders
         ]);
     }
 

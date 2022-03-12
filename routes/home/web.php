@@ -15,16 +15,18 @@ use App\Http\Controllers\MainWebSite\MainController;
 */
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/',[MainController::class,'index']);
+    Route::get('/cat/{id}',[MainController::class,'cat_Show']);
+    Route::get('/product/{id}',[MainController::class,'product_Show']);
+
+    Route::get('/carts',[MainController::class,'cart_Show']);
+    Route::post('/cart/store/{id}',[MainController::class,'cart_store']);
+    Route::post('/order/store',[MainController::class,'order_store']);
+});
 
 
 
-Route::get('/',[MainController::class,'index']);
-Route::get('/cat/{id}',[MainController::class,'cat_Show']);
-Route::get('/product/{id}',[MainController::class,'product_Show']);
-
-Route::get('/carts',[MainController::class,'cart_Show']);
-Route::post('/cart/store/{id}',[MainController::class,'cart_store']);
-Route::post('/order/store',[MainController::class,'order_store']);
 
 Route::view('dashboard','dashboard');
 
